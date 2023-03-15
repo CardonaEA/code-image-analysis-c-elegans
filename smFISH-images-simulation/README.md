@@ -52,7 +52,7 @@ Simulation is performed placing an average experimental mRNA image (average PSF)
 
 #### Generation of synthetic smFISH images at different mRNA concentrations
 - Approach 1
-    - Binary image of an oocyte where mRNAs will be placed: “oocyte_to_model_16bits.tif” (`location: ./simulation_inputs`)
+    - Binary image of an oocyte where mRNAs will be placed: “oocyte_to_model_16bits.tif” (location: `./simulation_inputs`)
     - Repository of mRNA images: “mRNA_repository_approach1.mat” (location: `./simulation_inputs/mRNA_repositories`)
 
 - Approach 2
@@ -119,7 +119,7 @@ or<br>
 
 | Approach 1 | Approach 2 |
 | ---- | --- |
-|Ste not performed|Provided image example:<br>`experimental_single_mol_PSF_8x6_mRNA_AVG_ns`<br><br>location: `./simulation_inputs`|
+|Step not performed|Provided image example:<br>`experimental_single_mol_PSF_8x6_mRNA_AVG_ns`<br><br>location: `./simulation_inputs`|
 
 10. Select the file of the mRNA images repository.
 
