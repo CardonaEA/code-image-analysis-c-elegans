@@ -1,7 +1,8 @@
 # _In Silico_ simulation of smFISH images (How to use)
 
 ## Before start
-Download the repository or the content of this folder.
+- Download the repository or the content of this folder.
+- unzip compressed `.tif` image files.
 
 ## Descriptions
 ### This simulation pipeline is divided into 2 parts:
