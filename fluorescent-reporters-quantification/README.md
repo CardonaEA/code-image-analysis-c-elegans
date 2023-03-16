@@ -54,13 +54,13 @@ Example images and outlines for this guide can be found in the folder `./example
     <img src="./imgs-readme/pq-ex-data.png" alt="example data" width="306" height="223">
 
 ### Procedure:
-6. Data should be organized in a folder as just shown above:<br>For each “name”.zip outline file, a matching “name”.tif image must be in the folder.
+6. Data should be organized in a folder as just shown above:<br>For each `“name”.zip` outline file, a matching `“name”.tif` image must be in the folder.
     - For this example, 4 images will be analyzed simultaneously.
-7. Using Fiji, open the script `BATCH_improved_outlines_oocyte_extraction.ijm` (location at `./image_outlines`)
+7. Using Fiji, open the script `BATCH_improved_outlines_oocyte_extraction.ijm` (location: `./image_outlines`)
 8. Run it and select the folder containing the images and oocyte outlines (ROIs) to analyze.<br>This script extracts the xy coordinates from the ROIs delimited and saved using Fiji.
     - **Output**: _`"name”_Cells.csv`_ files with xy coordinates of ROIs.<br>
     <img src="./imgs-readme/pq-step8.png" alt="output example" width="362" height="118">
-9. Using R or RStudio, open the script `BATCH_automatic_outlines_reorganization_by_columns.R` (location at `./image_outlines`)
+9. Using R or RStudio, open the script `BATCH_automatic_outlines_reorganization_by_columns.R` (location: `./image_outlines`)
 10. Run the script and select any file within the folder containing the images and ROIs to analyze.<br>This script reorganizes the outlines files, so they are readable in the image processing step.
     - **Output**: _`MOD_“name”_Cells.csv`_ files with reorganized xy coordinates of ROIs.<br>
     <img src="./imgs-readme/pq-step10.png" alt="output example" width="359" height="114">

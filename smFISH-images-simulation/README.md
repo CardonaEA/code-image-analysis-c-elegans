@@ -16,10 +16,10 @@
         - Statistics and Machine Learning Toolbox
 
 ### Set up:
-Copy the scripts provided (`./scripts_simulation`) to the MATLAB folder ( usually located in Documents directory).
+Copy the scripts provided (`./scripts_simulation`) to the MATLAB folder (usually located in Documents directory).
 
 ### Important:
-Here, two simulation approaches (app) are described:
+Here, two simulation approaches (**app**) are described:
 - Approach 1:
 Simulation is performed placing experimental mRNA images (PSF) cropped from smFISH images.
 
