@@ -1,4 +1,4 @@
-# Original code for _Robust sorting and buffering within condensates control transcriptome stoichiometries_
+# Original code for Robust sorting and buffering within condensates control transcriptome stoichiometries*
 
 ## Contents:
 This repository contains folders with code and example data to perform:
@@ -7,8 +7,8 @@ This repository contains folders with code and example data to perform:
 - ### smFISH-images-simulation
 - ### smFISH-images-quantification
 
-Each folder contains a README.md and .pdf file explaining how to use the respective code.ç
+Each folder contains a README.md and .pdf file explaining how to use the respective code.
 
 **Reference**
 
-Cardona, AH., Ecsedi, S. _et al_. Robust sorting and buffering within condensates control transcriptome stoichiometries (2023). Submitted
+(*) Cardona, AH., Ecsedi, S. _et al_. Robust sorting and buffering within condensates control transcriptome stoichiometries (2023). Submitted
