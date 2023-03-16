@@ -1,11 +1,11 @@
-# Fluorescence quantification of protein reporters (How to use)
+# Quantification of fluorescent reporter proteins (How to use)
 
 ## Before start
 - Download the repository or the content of this folder.
 - unzip compressed `.tif` image files.
 
 ## Descriptions
-### This simulation pipeline is divided into 2 parts:
+### This simulation pipeline is divided into 3 parts:
 - 1st part: outlines determination.
 - 2nd part: extraction of xy coordinates from outlines.
 - 3rd part: image analysis.
