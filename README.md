@@ -1,4 +1,4 @@
-# Original code for Robust sorting and buffering within condensates control transcriptome stoichiometries
+# Original code for _Robust sorting and buffering within condensates control transcriptome stoichiometries_
 
 ## Contents:
 This repository contains folders with code and example data to perform:
