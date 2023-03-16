@@ -53,13 +53,13 @@ Simulation is performed placing an average experimental mRNA image (average PSF)
 
 #### Generation of synthetic smFISH images at different mRNA concentrations
 - Approach 1
-    - Binary image of an oocyte where mRNAs will be placed: “oocyte_to_model_16bits.tif” (location: `./simulation_inputs`)
-    - Repository of mRNA images: “mRNA_repository_approach1.mat” (location: `./simulation_inputs/mRNA_repositories`)
+    - Binary image of an oocyte where mRNAs will be placed: “`oocyte_to_model_16bits.tif`” (location: `./simulation_inputs`)
+    - Repository of mRNA images: “`mRNA_repository_approach1.mat`” (location: `./simulation_inputs/mRNA_repositories`)
 
 - Approach 2
-    - Binary image of an oocyte where mRNAs will be placed: “oocyte_to_model_16bits.tif” (location: `./simulation_inputs`)
-    - Average experimental mRNA image (average PSF): “experimental_single_mol_PSF_8x6_mRNA_AVG_ns” (location: `./simulation_inputs`)
-    - Repository of mRNA images: “mRNA_repository_approach2.mat” (location: `./simulation_inputs/mRNA_repositories`)
+    - Binary image of an oocyte where mRNAs will be placed: “`oocyte_to_model_16bits.tif`” (location: `./simulation_inputs`)
+    - Average experimental mRNA image (average PSF): “`experimental_single_mol_PSF_8x6_mRNA_AVG_ns`” (location: `./simulation_inputs`)
+    - Repository of mRNA images: “`mRNA_repository_approach2.mat`” (location: `./simulation_inputs/mRNA_repositories`)
 
 
 ## User guide
@@ -92,7 +92,7 @@ Simulation is performed placing an average experimental mRNA image (average PSF)
 % ============ voxel size in nm (*)
 pixel_size.xy = 49;
 pixel_size.z = 250;
-% (*)This is the voxel size of the example images.  It is used to compute the locations of the mRNAs spots from the positions table (see step 3) when the positions are given in nm.
+% (*)This is the voxel size of the example images.  It is used to compute the locations of the mRNA spots from the positions table (see step 3) when the positions are given in nm.
 ```
 
 **To change this:**
@@ -154,8 +154,6 @@ or<br>
 _In Silico_ simulated images.
 
 ### Provided output examples:
-Example simulations with an expected concentration of 0.025 mol/µm3
-Location:
-`./simulated_images_examples`
+Example simulations with an expected concentration of 0.025 mol/µm3 (location: `./simulated_images_examples`)
  
 **Note**: expected concentrations are used as inputs. However, molecules placed very close to the oocyte edges whose PSF does not fit within the oocyte area are removed. Therefore, the actual concentration will be lower when the number of molecules placed is very high. The script will give the actual number of molecules placed.
