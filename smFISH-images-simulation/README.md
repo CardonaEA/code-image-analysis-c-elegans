@@ -11,9 +11,7 @@
 
 ### Requirements:
 - Tested in MATLAB v R2018b or higher
-    - Required toolboxes:
-        - Image Processing Toolbox
-        - Statistics and Machine Learning Toolbox
+    - Required toolboxes:<br>Image Processing Toolbox<br>Statistics and Machine Learning Toolbox
 
 ### Set up:
 Copy the scripts provided (`./scripts_simulation`) to the MATLAB folder (usually located in Documents directory).
@@ -89,10 +87,10 @@ Simulation is performed placing an average experimental mRNA image (average PSF)
 
 **The default parameters of the script include:**
 ```matlab
-% ============ voxel size in nm (*)
-pixel_size.xy = 49;
-pixel_size.z = 250;
-% (*)This is the voxel size of the example images.  It is used to compute the locations of the mRNA spots from the positions table (see step 3) when the positions are given in nm.
+    % ============ voxel size in nm (*)
+    pixel_size.xy = 49;
+    pixel_size.z = 250;
+    % (*)This is the voxel size of the example images.  It is used to compute the locations of the mRNA spots from the positions table (see step 3) when the positions are given in nm.
 ```
 
 **To change this:**

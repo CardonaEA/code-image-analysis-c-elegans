@@ -15,7 +15,7 @@
 ### Requirements:
 - MATLAB (tested v R2018b or higher)
     - Required toolboxes:<br>Image Processing Toolbox<br>Statistics and Machine Learning Toolbox<br>Parallel Computing Toolbox<br>Curve Fitting Toolbox<br>Optimization Toolbox
-    - Additional requirements:<br>FISH-quant (1,2,#)<br>* `https://bitbucket.org/muellerflorian/fish_quant/src/master/`
+    - Additional requirements:<br>FISH-quant (1,2,#)<br># `https://bitbucket.org/muellerflorian/fish_quant/src/master/`
 - Fiji (ImageJ)
 - R
 - Optional: RStudio
@@ -64,7 +64,7 @@ An example oocyte outlines file (see Fig. 1) is also provided:
     - To delimit oocytes, a max projection could be useful as gonad dimensions are variable along the z-plane.
     - Each oocyte outline (**ROI**) can be saved by clicking on the “`Add [t]`” bottom located in the _RIO Manager_ window, as shown below:<br><br>
     <img src="./imgs-readme/outlines-example.png" alt="outlines delimitation example" width="892" height="284"><br><br>
-5. Once all outlines are added, select them and save them as a “`.zip`” file. Important: name the file with the same name as the image where the outlines are coming from.
+5. Once all outlines are added, select them and save them as a “`.zip`” file. **Important:** name the file with the same name as the image where the outlines are coming from.
     - In the case of only one outline, it will be saved as a “`.roi`” file.
 
 ### Extraction of xy coordinates from outlines (required for 4rd part)
@@ -93,7 +93,7 @@ An example oocyte outlines file (see Fig. 1) is also provided. You can obtain it
 ### Optionally
 You can do this reorganization manually as shown below:
 
-<img src="./imgs-readme/smFq-optionally.png" alt="output example" width="707" height="482">
+<img src="./imgs-readme/smFq-optionally.png" alt="output example" width="707" height="482"><br><br>
 
 
 ### How to modify `BATCH_improved_outlines_oocyte_extraction.ijm`
@@ -146,7 +146,7 @@ You can do this reorganization manually as shown below:
     To select a value during the preprocessing make `quantile_BGD_subtraction = 0`
 
     - Line # 15: `block_size_for_image_ranking = 2`<br>
-    faster results with larger values like 4, 8, 16; but less detail.
+    Faster results with larger values like 4, 8, 16; but less detail.
 
 14. In the command window type: `smFISH_Preprocessing_Script`
 15. The script will ask you to select either a GFP or smFISH image.
@@ -244,12 +244,12 @@ For this example, the, the following files are provided:
 - The following values should be adapted to different experimental conditions, for example; a different mRNA target, type of microscopy, among others. However, should be maintained if you are analyzing the same experiment.
     - `options.Int_Threshold_GFP = 0.6`<br>
     Normalized intensity threshold for segmentation of the GFP image.<br>
-    Values accepted from 0 to 1. Values close to 0 would be background while values close to 1 will be condensates
+    Values accepted from 0 to 1. Values close to 0 would be background while values close to 1 will be condensates.
     - `options.Int_Threshold_FISH = 0.8`<br>
     Normalized intensity threshold for segmentation of the smFISH image.<br>
-    Values accepted from 0 to 1. Values close to 0 would be background while values close to 1 will be condensates
+    Values accepted from 0 to 1. Values close to 0 would be background while values close to 1 will be condensates.
     - `options.Volume_Threshold = 32`<br>
-    Volume threshold for segmentation (in pixels)
+    Volume threshold for segmentation (in pixels).
     - `options.Dilate_Granule = 1`<br>
     if = 1, condensates are dilated to make sure edges are included. This is a very important steps as edges not segmented might generate false positives while detecting cytosolic spots. **IMPORTANT:** Dilation needs to be done by condensate, so this step might take time depending on computer specifications.<br><br>
 - If you need to make test without running the whole script (specially the dilation that takes most of the time),<br>
@@ -263,7 +263,7 @@ or<br>
 
 ## Outputs
 
-<img src="./imgs-readme/smFq-output.png" alt="script outputs" width="833" height="299"><br><br><br>
+<img src="./imgs-readme/smFq-output.png" alt="script outputs" width="833" height="299"><br><br>
 
 ## 4th and 5th part:<br>Generation of outlines and filtered images for smFISH spots detection in the cytosol,<br>smFISH spots detection and filtering.
 The segmentation script also generates the outlines, raw image, and filter image required to run FISH-quant (1-3) to detect smFISH spots. For more information, refer to the already published manuals (1-3).

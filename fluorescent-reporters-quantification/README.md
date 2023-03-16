@@ -32,7 +32,7 @@
     - To delimit oocytes, a max projection could be useful as gonad dimensions are variable along the z-plane.
     - Each oocyte outline (**ROI**) can be saved by clicking on the “`Add [t]`” bottom located in the _RIO Manager_ window, as shown below:<br><br>
     <img src="./imgs-readme/outlines-example.png" alt="outlines delimitation example" width="892" height="284"><br><br>
-5. Once all outlines are added, select them and save them as a “`.zip`” file. Important: name the file with the same name as the image where the outlines are coming from.
+5. Once all outlines are added, select them and save them as a “`.zip`” file. **Important:** name the file with the same name as the image where the outlines are coming from.
     - In the case of only one outline, it will be saved as a “`.roi`” file.
 
 ## 2nd part: extraction of xy coordinates from outlines (required for image analysis in 3rd part)
@@ -78,7 +78,7 @@ Example images and outlines for this guide can be found in the folder `./example
 ## 3rd part: mage analysis
 
 ### Requirements:
-- MATLAB v R2018b or higher
+- MATLAB (tested v R2018b or higher)
     - Required toolboxes:<br>Image Processing Toolbox<br>Statistics and Machine Learning Toolbox
 
 ### Set up:
@@ -95,7 +95,7 @@ Copy the scripts provided (`./image_analysis_scripts`) to the MATLAB folder (usu
 ## Outputs:
 This image analysis script will yield the results shown below:
 
-<img src="./imgs-readme/pq-output.png" alt="script outputs" width="794" height="945">
+<img src="./imgs-readme/pq-output.png" alt="script outputs" width="794" height="945"><br>
 
 ## How to modify: `car1_Script_granules_by_oocyte_sphericity.m`
 
