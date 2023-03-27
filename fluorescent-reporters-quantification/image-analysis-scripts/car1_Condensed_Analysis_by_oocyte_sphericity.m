@@ -1,10 +1,8 @@
 function [T, Cond_IDs, CC, BP] = car1_Condensed_Analysis_by_oocyte_sphericity(image_info, seg_parameters, flags, blocks_processing)
-
 %--------- Getting z-stack information
 raw_image = image_info.image;
 image_details = imfinfo(raw_image);
 nIm = length(image_details);
-
 clear image_details;
 
 %---------- Loading z-stack into MATLAB, f : row image
@@ -68,7 +66,6 @@ else
 qs = seg_parameters.quantile;
 end
 
-
 %----------  image ranking by local proceesing
 ranked_image = cell(1,nIm);
 mask_size = seg_parameters.ranking_mask_size;
@@ -86,7 +83,7 @@ blocks_processing.value_end = double(max(value_end(:)));
 end
 
 for i = 1 : nIm
-filtered_image{i} =  GFP_image{i} - quantile(double(GFP_image{i}(:)), qs);
+filtered_image{i} = GFP_image{i} - quantile(double(GFP_image{i}(:)), qs);
 ranked_image{i} = BlockWs2(filtered_image{i}, mask_size, blocks_processing, i);
 end
 ranked_image_c = cat(3,ranked_image{:});
@@ -99,33 +96,25 @@ BP = blocks_processing;
 %----------  granules thresholding
 %========= with BGD correction
 % --- segmentation GFP
-seg_parameters.old_Version = 0; % for Mokeane's pc
-seg_parameters.isfog2 = 0; % for FOG2 worms (0 in all cases even FOG2)
+seg_parameters.old_Version = 0; % old Mlb version
 [r_GFP] = granules_Segmentation_BGD_correction(ranked_image_c, seg_parameters);
 % Save outlined image for condensates
 disp(newline)
 disp(bwconncomp(r_GFP,6))
-dataI.Folder = image_info.fold; dataI.raw = image_info.name;
+dataI.Folder = image_info.fold; dataI.raw = image_info.name; dataI.sep = image_info.sep;
 image_save_seg(GFP_c_image, r_GFP, dataI, 'GFP_mask')
-
-
 
 %====== New mask by cells cy3
 % You can put dataI_FISH, SegParameters_FISH or dataI_GFP, SegParameters_GFP
-% [var_Names, TS_i, Cond_IDs, CC, number_cells, Outlines_Cells] = granules_info_by_Cells(dataI_FISH_cy3, SegParameters_GFP, Mask_GFP_FISH, Raw_Image_c_cy3);
 [var_Names, TS_i, Cond_IDs, CC, ~, ~] = granules_info_by_Cells_car1_analysis_sphericity(image_info, seg_parameters, r_GFP, GFP_c_image);
-%
 
 empty_cells = cellfun(@isempty,TS_i);
 Info_TS = cat(1,TS_i{~empty_cells});
-
-% T = table(Info_TS(:,1),Info_TS(:,2),Info_TS(:,3),Info_TS(:,4),Info_TS(:,5),Info_TS(:,6),Info_TS(:,7),Info_TS(:,8),Info_TS(:,9),...
-%     'VariableNames',{var_Names{:},});
 
 T = table(repmat({image_info.name(1:end-4)},[size(Info_TS,1),1]),...
     Info_TS(:,1),Info_TS(:,2),Info_TS(:,3),Info_TS(:,4),Info_TS(:,5),Info_TS(:,6),Info_TS(:,7),Info_TS(:,8),Info_TS(:,9),...
     'VariableNames',{'image_ID_name', var_Names{:}});
 
 % save table
-writetable(T, [image_info.fold '/' image_info.name(1:end-4) '_Cond_quant' '.csv'])
+writetable(T, [image_info.fold image_info.sep image_info.name(1:end-4) '_Cond_quant' '.csv'])
 end

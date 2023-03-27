@@ -1,18 +1,15 @@
-% complete version
-function [TS, Ncells, Tout] = granules_info_by_Cells_car1_analysis_dilute_BP(Folder_Data, FISH_Image, CC, img_ID, BP)
+function [TS, Ncells, Tout] = granules_info_by_Cells_car1_analysis_dilute_BP(Folder_Data, img_stack, CC, img_ID, BP)
 %% Structures
 imageData = Folder_Data;
 % Analysis = anaysis_parameters;
 %% assing ID by cell
-fc = FISH_Image;
-S = double(FISH_Image);
+fc = img_stack;
+S = double(img_stack);
 n_slides = size(fc,3);
 % Load cell outlines
 Tout = table2array(readtable(imageData.outlines));
-
 [~, Ncells] = size(Tout);
 %% Loop through cells
-
 % Loop
 TS = zeros(Ncells/2,8);
 
@@ -77,54 +74,3 @@ end
 
 end
 end
-
-
-%--------- 1st version
-% % Version 1 does not include size-based background correction-subtraction
-% % Version 1 does not include segmentation of less bright objects
-% function [TS, Ncells, Tout] = granules_info_by_Cells_car1_analysis_dilute(Folder_Data, FISH_Image, CC, img_ID)
-% %% Structures
-% imageData = Folder_Data;
-% % Analysis = anaysis_parameters;
-% %% assing ID by cell
-% fc = FISH_Image;
-% S = double(FISH_Image);
-% % Load cell outlines
-% Tout = table2array(readtable(imageData.outlines));
-% 
-% [~, Ncells] = size(Tout);
-% %% Loop through cells
-% 
-% % Loop
-% TS = zeros(Ncells/2,4);
-% 
-% for c = 1:2:Ncells
-% x_coordinate = Tout(:,c);
-% y_coordinate = Tout(:,c+1);
-% 
-% x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
-% y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
-% 
-% x_coordinate = [x_coordinate{:}];
-% y_coordinate = [y_coordinate{:}];
-% 
-% Oo = roipoly(S(:,:,1),x_coordinate,y_coordinate);
-% 
-% Sa = double(Oo).*S;
-% 
-% cRowS = double(fc(:));
-% ccS.NumObjects = CC{img_ID}{(c+1)/2}.NumObjects;
-% CumInRow = zeros(ccS.NumObjects,1);
-% 
-% for i = 1: ccS.NumObjects
-%     CumInRow(i) = sum(cRowS(CC{img_ID}{(c+1)/2}.PixelIdxList{i}));
-% end
-% 
-% 
-% TS((c+1)/2,1) = img_ID;
-% TS((c+1)/2,2) = (c+1)/2;
-% TS((c+1)/2,3) = sum(Sa,'all');
-% TS((c+1)/2,4) = sum(CumInRow);
-% 
-% end
-% end

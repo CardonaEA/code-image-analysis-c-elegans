@@ -40,7 +40,7 @@ dataI_FISH.Folder = folder_Files;
 dataI_FISH.root   = folder_back;
 cd(folder_back)
 
-if ismac; sep = '/'; elseif ispc; sep = '\'; end
+sep = filesep;
 dataI_FISH.sep = sep;
 dataI_GFP.sep = sep;
 

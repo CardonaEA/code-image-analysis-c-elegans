@@ -10,8 +10,8 @@ f_image(:,:,i) = Segout;
 end 
 
 % image saving
-imwrite(f_image(:,:,1), [dataI.Folder '/' identifier '_' dataI.raw(1:end-4) '.tif'],'compression','none')
+imwrite(f_image(:,:,1), [dataI.Folder dataI.sep identifier '_' dataI.raw(1:end-4) '.tif'],'compression','none')
 for k = 2 : size(f_image,3)
-imwrite(f_image(:,:,k), [dataI.Folder '/' identifier '_' dataI.raw(1:end-4) '.tif'],'compression','none','WriteMode','append')
+imwrite(f_image(:,:,k), [dataI.Folder dataI.sep identifier '_' dataI.raw(1:end-4) '.tif'],'compression','none','WriteMode','append')
 end
 end

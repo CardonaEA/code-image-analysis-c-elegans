@@ -30,10 +30,9 @@ cd(image_Data.root)
 % ========= get mRNA positions
 spots_data.Folder = image_Data.pathname_pos;
 spots_data.mRNA_pos =  dataI.mRNAs_pos;
-if ismac; sep = '/'; elseif ispc; sep = '\'; end
-image_Data.sep = sep;
+image_Data.sep = filesep;
 
-mRNA_positions = readtable([spots_data.Folder sep spots_data.mRNA_pos]);
+mRNA_positions = readtable([spots_data.Folder image_Data.sep spots_data.mRNA_pos]);
 
 disp(newline)
 disp('positions:')

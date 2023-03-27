@@ -1,11 +1,14 @@
 function [selected_files] = get_files_car1_by_oocyte(identifiers)
-%% Folder containing information to be analysed
+%=== Folder containing information to be analysed
+disp(newline)
+disp('select folder containing files to anlayze...')
 dataI.Folder = uigetdir('Select the folder containing files'); % folder for saving results
 % root folder
 dataI.root = cd;
+dataI.sep = filesep;
 cd(dataI.Folder)
 
-%% Getting archives
+%=== Getting archives
 % identifiers
 GFP_id              = identifiers.GFP;
 cell_outlines_id    = identifiers.ROIs;
@@ -31,5 +34,3 @@ disp('cell outlines: ')
 disp(dataI.cell_outlines')
 disp(newline)
 end
-
-
