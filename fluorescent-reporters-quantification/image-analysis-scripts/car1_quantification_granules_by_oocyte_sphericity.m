@@ -15,7 +15,7 @@ for i = 1 : length(selected_files.GFP_image)
     info_image_to_analyze.image = [selected_files.Folder selected_files.sep selected_files.GFP_image{i}];
     info_image_to_analyze.outlines = [selected_files.Folder selected_files.sep selected_files.cell_outlines{i}];
     info_image_to_analyze.name = selected_files.GFP_image{i};
-    [T_granules, Cond_IDs{i}, CC{i}, BP{i}] = car1_Condensed_Analysis_by_oocyte_sphericity(info_image_to_analyze, parameters, flags, blocks_processing);
+    [T_granules, Cond_IDs{i}, CC{i}, BP{i}] = car1_Condensed_Analysis_by_oocyte_sphericity(info_image_to_analyze, parameters, blocks_processing);
     T_merge_granules = [T_merge_granules; T_granules];
 end
 

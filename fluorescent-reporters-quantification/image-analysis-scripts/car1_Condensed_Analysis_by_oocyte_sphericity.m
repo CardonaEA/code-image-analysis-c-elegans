@@ -1,4 +1,4 @@
-function [T, Cond_IDs, CC, BP] = car1_Condensed_Analysis_by_oocyte_sphericity(image_info, seg_parameters, flags, blocks_processing)
+function [T, Cond_IDs, CC, BP] = car1_Condensed_Analysis_by_oocyte_sphericity(image_info, seg_parameters, blocks_processing)
 %--------- Getting z-stack information
 raw_image = image_info.image;
 image_details = imfinfo(raw_image);
@@ -16,55 +16,8 @@ if blocks_processing.is_out_focus
     [blocks_processing] = z_boundaries_det(blocks_processing, nIm, GFP_image);
 end
 
-%---------- BGD estimation
-if flags.Gauss
-%: background approximation of z-stack using a gaussian filter to blur the z-stack 
-volSmooth1 = imgaussfilt3(GFP_c_image,[61 61 11]);
-volSmooth2 = imgaussfilt3(GFP_c_image,[61 61 21]);
-%: Construction the plots to define quantile to substract background
-% Plotting intensity levels of raw image
-for j = 1 : nIm
-plot(0:0.1:1,log(quantile(double(GFP_image{j}(:)),0:0.1:1)),'.k')
-hold on
-end
-% Plotting intensity levels of first background approximation (all slices)
-for j = 1 : nIm
-pIm = volSmooth1(:,:,j);
-plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.b')
-hold on
-end
-% Plotting intensity levels of second background approximation (all slices)
-for j = 1 : nIm
-pIm = volSmooth2(:,:,j);
-plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.r')
-hold on
-end
-clear pIm;
-% Averaging previos information to show just one line
-ImaQ = zeros(length(0:0.001:1),nIm);
-BkgQ1 = zeros(length(0:0.001:1),nIm);
-BkgQ2 = zeros(length(0:0.001:1),nIm);
-for j = 1 : nIm    
-ImaQ(:,j) = quantile(double(GFP_image{j}(:)),0:0.001:1);
-pIm1 = double(volSmooth1(:,:,j));
-BkgQ1(:,j) = quantile(pIm1(:),0:0.001:1);
-pIm2 = double(volSmooth2(:,:,j));
-BkgQ2(:,j) = quantile(pIm2(:),0:0.001:1);
-end
-% Plotting quantile by quentile means
-plot(0:0.001:1,log(mean(ImaQ,2)),'k')
-plot(0:0.001:1,log(mean(BkgQ1,2)),'b')
-plot(0:0.001:1,log(mean(BkgQ2,2)),'r')
-hold off
-clear ImaQ BkgQ1 BkgQ2 volSmooth1 volSmooth2;
-qs = input('quantile to substract: ');
-while ~isnumeric(qs)
-    qs = input('quantile to substract: ');
-end
-seg_parameters.quantile_Manual = qs;
-else
+%---------- BGD subtraction
 qs = seg_parameters.quantile;
-end
 
 %----------  image ranking by local proceesing
 ranked_image = cell(1,nIm);
