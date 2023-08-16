@@ -6,6 +6,7 @@ This repository contains folders with code and example data to perform:
 - ### fluorescent-reporters-quantification
 - ### smFISH-images-simulation
 - ### smFISH-images-quantification
+- ### nanoclusters-fitting
 
 Each folder contains a README.md and .pdf file explaining how to use the respective code.
 
