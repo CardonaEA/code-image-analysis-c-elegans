@@ -21,7 +21,7 @@ Img_WS_FISH   = dir(['*' files.FISH_ws '*.mat']);
 Img_WS_FISH   = {Img_WS_FISH.name};
 dataI_FISH.ws = char(Img_WS_FISH(~startsWith(Img_WS_FISH,{'.','..','._'})));
 % outlines
-Img_OutL           = dir('*.csv');
+Img_OutL           = dir('MOD*Cells.csv');
 Img_OutL           = {Img_OutL.name};
 Img_OutL           = char(Img_OutL(~startsWith(Img_OutL,{'.','..','._'})));
 dataI_GFP.outline  = Img_OutL;
