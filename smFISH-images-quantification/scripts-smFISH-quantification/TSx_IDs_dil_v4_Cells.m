@@ -18,15 +18,23 @@ DgSTx = cell(1,Ncells/2);
 var_Names = {'Volume','MeanRowInt','CumRowInt','MedianRowInt'};
 TS = cell(Ncells/2,1);
 
+% matlab < 2020a compatibility
+matComp = iscell(Tout);
+
 for c = 1:2:Ncells
 x_coordinate = Tout(:,c);
 y_coordinate = Tout(:,c+1);
 
-x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
-y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
+if matComp 
+    x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
+    y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
 
-x_coordinate = [x_coordinate{:}];
-y_coordinate = [y_coordinate{:}];
+    x_coordinate = [x_coordinate{:}];
+    y_coordinate = [y_coordinate{:}];
+else
+    x_coordinate = x_coordinate(~isnan(x_coordinate));
+    y_coordinate = y_coordinate(~isnan(y_coordinate));
+end
 
 Oo = roipoly(max(S,[],3),x_coordinate,y_coordinate);
 % Oo = roipoly(max(S,[],3),Tout(~isnan(Tout(:,c)),c),Tout(~isnan(Tout(:,c+1)),c+1));

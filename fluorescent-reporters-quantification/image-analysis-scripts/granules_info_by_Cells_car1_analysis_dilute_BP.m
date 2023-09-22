@@ -10,18 +10,25 @@ n_slides = size(fc,3);
 Tout = table2array(readtable(imageData.outlines));
 [~, Ncells] = size(Tout);
 %% Loop through cells
-% Loop
 TS = zeros(Ncells/2,8);
+
+% matlab < 2020a compatibility
+matComp = iscell(Tout);
 
 for c = 1:2:Ncells
 x_coordinate = Tout(:,c);
 y_coordinate = Tout(:,c+1);
 
-x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
-y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
+if matComp 
+    x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
+    y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
 
-x_coordinate = [x_coordinate{:}];
-y_coordinate = [y_coordinate{:}];
+    x_coordinate = [x_coordinate{:}];
+    y_coordinate = [y_coordinate{:}];
+else
+    x_coordinate = x_coordinate(~isnan(x_coordinate));
+    y_coordinate = y_coordinate(~isnan(y_coordinate));
+end
 
 Oo = roipoly(S(:,:,1),x_coordinate,y_coordinate);
 

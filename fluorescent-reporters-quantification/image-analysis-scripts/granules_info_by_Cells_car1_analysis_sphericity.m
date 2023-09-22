@@ -10,7 +10,6 @@ S = r;
 Tout = table2array(readtable(imageData.outlines));
 [~, Ncells] = size(Tout);
 %% Loop through cells
-% [~, ~, nIm] = size(S); % Z dim
 ccSTx = cell(1,Ncells/2);
 DgSTx = cell(1,Ncells/2);
 
@@ -18,15 +17,23 @@ DgSTx = cell(1,Ncells/2);
 var_Names = {'Cell','granule','Surface_Area','Volume','sphericity','MeanInt','CumInt','MedianInt','Volume_um3'};
 TS = cell(Ncells/2,1);
 
+% matlab < 2020a compatibility
+matComp = iscell(Tout);
+
 for c = 1:2:Ncells
 x_coordinate = Tout(:,c);
 y_coordinate = Tout(:,c+1);
 
-x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
-y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
+if matComp 
+    x_coordinate = cellfun(@str2num, x_coordinate, 'UniformOutput',false);
+    y_coordinate = cellfun(@str2num, y_coordinate, 'UniformOutput',false);
 
-x_coordinate = [x_coordinate{:}];
-y_coordinate = [y_coordinate{:}];
+    x_coordinate = [x_coordinate{:}];
+    y_coordinate = [y_coordinate{:}];
+else
+    x_coordinate = x_coordinate(~isnan(x_coordinate));
+    y_coordinate = y_coordinate(~isnan(y_coordinate));
+end
 
 Oo = roipoly(max(S,[],3),x_coordinate,y_coordinate);
 
