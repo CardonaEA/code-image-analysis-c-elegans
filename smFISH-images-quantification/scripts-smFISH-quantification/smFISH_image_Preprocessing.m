@@ -34,7 +34,8 @@ tic
 [blocks_processing, SDc, filtered_Image] = Image_Ranking(Raw_Image, image_Data, Blocks_Size, blocks_processing, options);
 toc
 %% MATLAB Workspace saving
-% S = r;
+disp(newline)
+disp('saving MATLAB workspace...')
 if options.save_WS
 cd(image_Data.pathname)
 fName = regexprep(image_Data.filename,'[-=]','_');
@@ -46,3 +47,4 @@ save(['WS_' fName(1:end-3) '_GFP' '.mat'],'SDc','image_Data','blocks_processing'
 end
 cd(image_Data.root)
 end
+disp('...done')
