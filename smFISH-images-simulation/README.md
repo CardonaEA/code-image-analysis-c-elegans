@@ -104,7 +104,8 @@ or<br>
 ## 2nd part: generation of synthetic smFISH images at different mRNA concentrations
 
 ### Procedure:
-Note: by default, the script requires a lot of time as it generates 25 different concentrations with 3 replicates in a whole oocyte. To test the script see the **Recommended parameters to test** section below. 
+Note: by default, the script requires a lot of time as it generates 25 different concentrations with 3 replicates in a whole oocyte. To test the script see the **Recommended parameters to test** section below.
+
 6. Open MATLAB
 7. In the command window:
 
