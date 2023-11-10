@@ -19,10 +19,10 @@ Copy the scripts provided (`./scripts_simulation`) to the MATLAB folder (usually
 ### Important:
 Here, two simulation approaches (**app**) are described:
 - Approach 1:
-Simulation is performed placing experimental mRNA images (PSF) cropped from smFISH images.
+Simulation is performed by placing experimental mRNA images (PSF) cropped from smFISH images.
 
 - Approach 2:
-Simulation is performed placing an average experimental mRNA image (average PSF) with the intensities of experimental mRNA images.
+Simulation is performed by placing an average experimental mRNA image (average PSF) with the intensities of experimental mRNA images.
     - First, an average experimental PSF image is obtained and normalized.
     - Second, the intensity value of experimental mRNA images is multiplied by the normalized PSF and then placed.
 
@@ -104,6 +104,7 @@ or<br>
 ## 2nd part: generation of synthetic smFISH images at different mRNA concentrations
 
 ### Procedure:
+Note: by default, the script requires a lot of time as it generates 25 different concentrations with 3 replicates in a whole oocyte. To test the script see the **Recommended parameters to test** section below. 
 6. Open MATLAB
 7. In the command window:
 
@@ -111,7 +112,7 @@ or<br>
 | ---- | --- |
 |Type<br>`Script_to_generate_synthetic_images_approach1`<br> and then press enter|Type<br>`Script_to_generate_synthetic_images_approach2`<br>and then press enter|
 
-8. Select the file of binary image where random placement will be performed.
+8. Select the file of the binary image where random placement will be performed.
     * Provided image example:<br>`oocyte_to_model_16bits.tif`<br><br>location: `./simulation_inputs`
 
 9. Select the file of average PSF image (**only for approach 2**)
@@ -140,13 +141,27 @@ replicates_simulation = 3;
 additional_BGD_to_substract_mRNA = 34;
 ```
 
+**Recommended parameters to test** 
+```matlab
+% ============ voxel size
+pixel_size.xy = 49;
+pixel_size.z = 250;
+ 
+%============= expected concentrations in mol/um3
+concentration_desired = [0.025];
+% number of replicates by concentration
+replicates_simulation = 1;
+% reduce PSF
+additional_BGD_to_substract_mRNA = 34;
+```
+
 **To change default parameters:**
 - Type in the command window:<br>
 `edit Script_to_generate_synthetic_images_approach1`<br>
 or<br>
 `edit Script_to_generate_synthetic_images_approach2`
 - Press enter.
-- Then, modification can be included and saved.<br><br>
+- Then, modifications can be made and saved.<br><br>
 
 ## Outputs:
 _In Silico_ simulated images.

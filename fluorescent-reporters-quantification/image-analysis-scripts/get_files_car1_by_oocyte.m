@@ -18,8 +18,8 @@ GFP_image       = dir(GFP_id);                      GFP_image       = {GFP_image
 cells_outlines  = dir(cell_outlines_id);            cells_outlines  = {cells_outlines.name};
 
 % remove '.' and '..' files
-dataI.GFP_image         = GFP_image(~startsWith(GFP_image,{'.','..'}));
-dataI.cell_outlines     = cells_outlines(~startsWith(cells_outlines,{'.','..'}));
+dataI.GFP_image         = GFP_image(~startsWith(GFP_image,{'.','..','._'}));
+dataI.cell_outlines     = cells_outlines(~startsWith(cells_outlines,{'.','..','._'}));
 
 % back to working dir
 cd(dataI.root)

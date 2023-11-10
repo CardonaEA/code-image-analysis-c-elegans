@@ -83,6 +83,7 @@ Example images and outlines for this guide can be found in the folder `./example
 
 ### Set up:
 Copy the scripts provided (`./image_analysis_scripts`) to the MATLAB folder (usually located in Documents directory).
+- Note: overlapping code scripts from other quantifications do not need to be replaced.
 
 ### Prcedure:
 11. Open MATLAB

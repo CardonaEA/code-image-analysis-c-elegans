@@ -21,7 +21,8 @@
 - Optional: RStudio
 
 ### Set up:
-* Copy the scripts provided (`./scripts_smFISH_quantification`) to the the MATLAB folder (usually located in Documents directory).
+* Copy the scripts provided (`./scripts_smFISH_quantification`) to the MATLAB folder (usually located in Documents directory).
+    - Note: overlapping code scripts from other quantifications do not need to be replaced.
 * Install FISH-quant:
     - Go to `https://bitbucket.org/muellerflorian/fish_quant/src/master/` (1,2).
     - Click Downloads and then download the repository (1,2).
@@ -35,7 +36,7 @@
 
 <img src="./imgs-readme/smFq-fig1.png" alt="flowchart" width="932" height="622">
 
-**Figure 1.** smFISH image quantification pipeline. It uses Fiji, FISH-quant, and custom MATLAB code.<br>(*) These steps can be done in batch. For the rest of steps several MATLAB sections can be open simultaneously.
+**Figure 1.** smFISH image quantification pipeline. It uses Fiji, FISH-quant, and custom MATLAB code.<br>(*) These steps can be done in batch. For the rest of steps, several MATLAB sections can be opened simultaneously.
 
 ### Provided image examples
 The image data is provided at `./example image`<br>
@@ -111,7 +112,7 @@ You can do this reorganization manually as shown below:
 ### Procedure. For each channel, GFP and smFISH, do the following:
 11. Open MATLAB
 12. In the command window type:
-    - `edit smFISH_Preprocessing_Script`<br>
+    - `edit smFISH_preprocessing_Script`<br>
     This file will open:
     ```matlab
         %%  ----------------- smFISH preprocessing
@@ -133,7 +134,7 @@ You can do this reorganization manually as shown below:
         % run
         smFISH_image_Preprocessing
     ```
-13. If needed, modify the parameters for preprocesssing, then save changes:
+13. If needed, modify the parameters for preprocessing, then save changes:
     - Line # 6: `is_stack_out_of_focus`<br>
     This scrip is optimized for two options, either a complete gonad in the z-plane with out-of-focus planes (`is_stack_out_of_focus = 1`), or a z-section with NO out-of-focus planes (`is_stack_out_of_focus = 0`).
 
@@ -148,7 +149,7 @@ You can do this reorganization manually as shown below:
     - Line # 15: `block_size_for_image_ranking = 2`<br>
     Faster results with larger values like 4, 8, 16; but less detail.
 
-14. In the command window type: `smFISH_Preprocessing_Script`
+14. In the command window type: `smFISH_preprocessing_Script`
 15. The script will ask you to select either a GFP or smFISH image.
     - The preprocessing steps are the same, the distinction is only used to name the outputs properly.
 16. If `is_stack_out_of_focus = 1`, The script determines the oocyte z-boundaries of the stack (oocytes z-edges), as follows:
@@ -196,9 +197,11 @@ For this example, the, the following files are provided:
     %  ----------------- smFISH image analysis (segmentation)
     %% File ID indicators
     files = struct; % do not modify
-    files.FISH_img = 'Spn4'; % file indicator for smFISH image
-    files.FISH_ws  = 'FISH'; % file indicator for smFISH workspace
-    files.GFP      = 'GFP';  % file indicator for GFP image and workspace
+    files.FISH_img = '*Spn4*.tif';    % file identifier for smFISH image
+    files.FISH_ws  = '*FISH*.mat';    % file identifier for smFISH workspace
+    files.GFP_img  = '*GFP*.tif';     % file identifier for GFP image
+    files.GFP_ws   = '*GFP*.mat';     % file identifier for GFP workspace
+    files.outlines = 'MOD*Cells.csv'; % file identifier for cell outlines
     
     %% Microscope parameters
     % Define pixel size in nm
@@ -251,7 +254,7 @@ For this example, the, the following files are provided:
     - `options.Volume_Threshold = 32`<br>
     Volume threshold for segmentation (in pixels).
     - `options.Dilate_Granule = 1`<br>
-    if = 1, condensates are dilated to make sure edges are included. This is a very important steps as edges not segmented might generate false positives while detecting cytosolic spots. **IMPORTANT:** Dilation needs to be done by condensate, so this step might take time depending on computer specifications.<br><br>
+    if = 1, condensates are dilated to make sure edges are included. This is a very important step as edges not segmented might generate false positives while detecting cytosolic spots. **IMPORTANT:** Dilation needs to be done by condensate, so this step might take time depending on computer specifications.<br><br>
 - If you need to make test without running the whole script (specially the dilation that takes most of the time),<br>
 in step 18 type in the command window:<br>
 `edit smFISH_Segmentation_Script_TEST`<br><br>
@@ -295,8 +298,8 @@ The segmentation script also generates the outlines, raw image, and filter image
 Condensates quantification (Fig.1, see Supplementary Information (4)) is performed after the detection of cytosolic smFISH spots.
 
 To avoid any detection of spots within condensates by FISH-quant, the output images (step **22** and **23**) are labeled, so:
-- The only possible detection of false positive smFISH sports occurs at condensates edges.
-- After detection in FISH-quant (1-3), false positive spots at the condensate edges can be filtered out because they would have a unique and very high “`Pixel intensity (Raw)`” value that: (1st) it is not preset in the image and (2nd) it is biased to the right side as shown in the following example:
+- The only possible detection of false positive smFISH sports occurs at condensate edges.
+- After detection in FISH-quant (1-3), false positive spots at the condensate edges can be filtered out because they would have a unique and very high “`Pixel intensity (Raw)`” value that: (1st) it is not present in the image and (2nd) it is biased to the right side as shown in the following example:
 
 Before filtering out false positives from condensates edges
 
@@ -313,4 +316,4 @@ Image from FISH-quant v3 main interface (1-3).
 1. Mueller, F., Senecal, A., Tantale, K. et al. FISH-quant: automatic counting of transcripts in 3D FISH images. Nat Methods 10, 277–278 (2013).
 2. Tsanov, N., Samacoits, A., Chouaib, R. et al. smiFISH and FISH-quant – a flexible single RNA detection approach with super-resolution capability, Nucleic Acids Research 44 (22), e165 (2016).
 3. `https://bitbucket.org/muellerflorian/fish_quant/src/master/`
-4. Cardona, AH., Ecsedi, S. et al. Robust sorting and buffering within condensates control transcriptome stoichiometries (2023). Submitted 
+4. Cardona et al., Self-demixing of mRNA copies buffers mRNA:mRNA and mRNA:regulator stoichiometries, Cell (2023), https://doi.org/10.1016/j.cell.2023.08.018

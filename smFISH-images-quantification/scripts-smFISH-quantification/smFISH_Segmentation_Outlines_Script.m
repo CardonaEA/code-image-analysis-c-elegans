@@ -1,9 +1,11 @@
 %  ----------------- smFISH image analysis (segmentation)
 %% File ID indicators
 files = struct; % do not modify
-files.FISH_img = 'Spn4'; % file indicator for smFISH image
-files.FISH_ws  = 'FISH'; % file indicator for smFISH workspace
-files.GFP      = 'GFP';  % file indicator for GFP image and workspace
+files.FISH_img = '*Spn4*.tif';    % file identifier for smFISH image
+files.FISH_ws  = '*FISH*.mat';    % file identifier for smFISH workspace
+files.GFP_img  = '*GFP*.tif';     % file identifier for GFP image
+files.GFP_ws   = '*GFP*.mat';     % file identifier for GFP workspace
+files.outlines = 'MOD*Cells.csv'; % file identifier for cell outlines
 
 %% Microscope parameters
 % Define pixel size in nm
