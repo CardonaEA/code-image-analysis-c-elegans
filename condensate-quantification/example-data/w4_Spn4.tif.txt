@@ -1,0 +1,7 @@
+Large file.
+Please download from:
+https://doi.org/10.17632/8jvrnztdvc.1
+location: smFISH images quantification > example_image
+
+https://doi.org/10.17632/8jvrnztdvc.2
+location: condensate quantification > example-data
