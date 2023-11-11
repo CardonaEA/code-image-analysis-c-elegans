@@ -2,7 +2,8 @@
 
 ## Before start
 - Download the repository or the content of this folder.
-- unzip compressed `.tif` image files.
+- For Github downloads: example smFISH images (large files) are provided as '`.tif.txt`'. A link to download the images is within the text files.
+    - https://doi.org/10.17632/8jvrnztdvc.1 (location: `smFISH images quantification > example_image`).
 
 ## Descriptions
 ### This quantification pipeline is divided into 5 parts:
