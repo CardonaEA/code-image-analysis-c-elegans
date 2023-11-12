@@ -69,19 +69,19 @@ Simulation is performed by placing an average experimental mRNA image (average P
 
 | Approach 1 | Approach 2 |
 | ---- | --- |
-|Type<br>`Script_to_generate_mRNA_repository_approach1`<br>and then press enter|Type<br>`Script_to_generate_mRNA_repository_approach2`<br>and then press enter|
+|Type<br>`script_to_generate_mRNA_repository_approach1`<br>and then press enter|Type<br>`script_to_generate_mRNA_repository_approach2`<br>and then press enter|
 
 3. Select the folder containing the mRNA positions table.
 
 | Approach 1 | Approach 2|
 | --- | --- |
-|The script will look for a .csv file with the identifier `'dissolved'`  in its file name.<br><br>To change this:<br>- Type in the command window:<br>`edit Script_to_generate_mRNA_repository_approach1`<br>- Press enter.<br>- Then, in the line # 9 change: `'dissolved'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach1`<br>Important:<br>Image names should match between the table of positions and the image files.|The script will look for a .csv file with the identifier `'L44440'` in its file name.<br><br>To change this:<br>- Type in the command window:<br>`edit Script_to_generate_mRNA_repository_approach2`<br>- Press enter.<br>- Then, in the line # 9 change: `'L44440'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach2`<br>Important:<br>Image names should match between the table of positions and the image files.|
+|The script will look for a .csv file with the identifier `'dissolved'`  in its file name.<br><br>To change this:<br>- Type in the command window:<br>`edit script_to_generate_mRNA_repository_approach1`<br>- Press enter.<br>- Then, in the line # 9 change: `'dissolved'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach1`<br>Important:<br>Image names should match between the table of positions and the image files.|The script will look for a .csv file with the identifier `'L44440'` in its file name.<br><br>To change this:<br>- Type in the command window:<br>`edit script_to_generate_mRNA_repository_approach2`<br>- Press enter.<br>- Then, in the line # 9 change: `'L44440'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach2`<br>Important:<br>Image names should match between the table of positions and the image files.|
 
 4. Select the folder containing the smFISH image files.
 
 | Approach 1 | Approach 2|
 | --- | --- |
-|The script will look for images with the identifier `'spn4'` in their file names.<br><br>To change this:<br>- Type in the command window:<br>`edit Script_to_generate_mRNA_repository_approach1`<br>- Press enter.<br>- Then, in the line # 10 change: `'spn4'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach1`<br>Important: Image names should match between the table of positions and the image files.|The script will look for images with the identifier `'distal'` in their file names.<br><br>To change this:<br>- Type in the command window:<br>`edit Script_to_generate_mRNA_repository_approach2`<br>- Press enter.<br>- Then, in the line # 10 change: `'distal'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach2`<br>Important: Image names should match between the table of positions and the image files.|
+|The script will look for images with the identifier `'spn4'` in their file names.<br><br>To change this:<br>- Type in the command window:<br>`edit script_to_generate_mRNA_repository_approach1`<br>- Press enter.<br>- Then, in the line # 10 change: `'spn4'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach1`<br>Important: Image names should match between the table of positions and the image files.|The script will look for images with the identifier `'distal'` in their file names.<br><br>To change this:<br>- Type in the command window:<br>`edit script_to_generate_mRNA_repository_approach2`<br>- Press enter.<br>- Then, in the line # 10 change: `'distal'` for anything you want.<br><br>Example data location: `./simulation_inputs/mRNA_repositories/spots_for_approach2`<br>Important: Image names should match between the table of positions and the image files.|
 
 5. Select the folder where to save the repositories.<br>
 
@@ -95,9 +95,9 @@ Simulation is performed by placing an average experimental mRNA image (average P
 
 **To change this:**
 - Type in the command window:<br>
-`edit Script_to_generate_mRNA_repository_approach1`<br>
+`edit script_to_generate_mRNA_repository_approach1`<br>
 or<br>
-`edit Script_to_generate_mRNA_repository_approach2`
+`edit script_to_generate_mRNA_repository_approach2`
 - Press enter.
 - Then, in the line # 5 and # 6, default values can be changed.
 
@@ -111,7 +111,7 @@ Note: by default, the script requires a lot of time as it generates 25 different
 
 | Approach 1 | Approach 2 |
 | ---- | --- |
-|Type<br>`Script_to_generate_synthetic_images_approach1`<br> and then press enter|Type<br>`Script_to_generate_synthetic_images_approach2`<br>and then press enter|
+|Type<br>`script_to_generate_synthetic_images_approach1`<br> and then press enter|Type<br>`script_to_generate_synthetic_images_approach2`<br>and then press enter|
 
 8. Select the file of the binary image where random placement will be performed.
     * Provided image example:<br>`oocyte_to_model_16bits.tif`<br><br>location: `./simulation_inputs`
@@ -158,9 +158,9 @@ additional_BGD_to_substract_mRNA = 34;
 
 **To change default parameters:**
 - Type in the command window:<br>
-`edit Script_to_generate_synthetic_images_approach1`<br>
+`edit script_to_generate_synthetic_images_approach1`<br>
 or<br>
-`edit Script_to_generate_synthetic_images_approach2`
+`edit script_to_generate_synthetic_images_approach2`
 - Press enter.
 - Then, modifications can be made and saved.<br><br>
 
