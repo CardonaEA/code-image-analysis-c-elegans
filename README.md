@@ -8,6 +8,7 @@ This repository contains original code and example data to perform:
 - ### smFISH-images-quantification
 - ### nanoclusters-fitting
 - ### condensate-quantification
+- ### translation-rates-computing
 
 Each folder contains a README.md and .pdf file explaining how to use the respective code.
 

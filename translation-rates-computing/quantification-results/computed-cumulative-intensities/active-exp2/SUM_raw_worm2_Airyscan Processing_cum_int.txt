@@ -1,0 +1,7 @@
+activity	imageID	image	oocyte	area	mean	n_pixels	cum_intensity
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_1	780.4146	106.7552	173373	18508467
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_2	505.1743	60.179	112227	6753714
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_3	443.0285	31.5464	98421	3104824
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_4	713.5829	23.5517	158526	3733558
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_5	492.467	24.9917	109404	2734187
+active	SUM_raw_worm2_Airyscan Processing_exp2	SUM_raw_worm2_Airyscan Processing	oocyte_6	304.6522	34.7693	67680	2353187
