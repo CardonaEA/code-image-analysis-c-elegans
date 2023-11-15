@@ -54,7 +54,7 @@ The example data provided with this guide is organized as follows:
 - "_quiescent_exp1_": SPN-4:GFP expression in quiescent oocytes, experiment # 1.
 - "_quiescent_exp2_": SPN-4:GFP expression in quiescent oocytes, experiment # 2.
 
-Raw data can be downloaded from: https://doi.org/10.17632/5jt3m3twsh.1, location: SPN-4-GFP > SPN4-GFP_translation_rates.7z<br>See also **Reference** # 1.
+Raw data can be downloaded from: https://doi.org/10.17632/5jt3m3twsh.2, location: SPN-4-GFP > SPN4-GFP_translation_rates.7z<br>See also **Reference** # 1.
 
 ### 3rd part: computing of cumulative intensities
 #### Pre-analysis

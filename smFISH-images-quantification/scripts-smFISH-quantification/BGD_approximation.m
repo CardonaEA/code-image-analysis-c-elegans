@@ -18,28 +18,28 @@ volSmooth2 = imgaussfilt3(fc(:,:,idx_beg + 5 : idx_end - 5),[81 81 21]); % *** -
 end
 % volSmooth3 = imgaussfilt3(fc,[81 81 41]);
 
-%===== Construction the plots to define quantile to substract background
+%===== plot to select quantile to subtract background
 % Plotting intensity levels of raw image
 figure
 nIm2 = length(idx_beg + 5 : idx_end - 5);
 for j = 1 : nIm2
-plot(0:0.1:1,log(quantile(double(f{j + idx_beg + 4}(:)),0:0.1:1)),'.k')
+plot(0:0.1:1,log(quantile(double(f{j + idx_beg + 4}(:)),0:0.1:1)),'.k','HandleVisibility','off')
 hold on
 end
 % Plotting intensity levels of first background approximation (z-stack)
 for j = 1 : nIm2
 pIm = volSmooth1(:,:,j);
-plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.b')
+plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.b','HandleVisibility','off')
 hold on
 end
 % Plotting intensity levels of second background approximation (z-stack)
 for j = 1 : nIm2
 pIm = volSmooth2(:,:,j);
-plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.r')
+plot(0:0.1:1,log(quantile(double(pIm(:)),0:0.1:1)),'.r','HandleVisibility','off')
 hold on
 end
 % clear pIm;
-% Averaging previos information to show just one line
+% Averaging previous information to show just one line
 ImaQ = zeros(length(0:0.001:1),nIm2);
 BkgQ1 = zeros(length(0:0.001:1),nIm2);
 BkgQ2 = zeros(length(0:0.001:1),nIm2);
@@ -50,11 +50,11 @@ BkgQ1(:,j) = quantile(pIm1(:),0:0.001:1);
 pIm2 = double(volSmooth2(:,:,j));
 BkgQ2(:,j) = quantile(pIm2(:),0:0.001:1);
 end
-% Plotting quantile by quentile means
+% Plotting quantile by quantile means
 plot(0:0.001:1,log(mean(ImaQ,2)),'k')
 plot(0:0.001:1,log(mean(BkgQ1,2)),'b')
 plot(0:0.001:1,log(mean(BkgQ2,2)),'r')
-% lebels
+% labels
 xlabel('Quantile')
 ylabel('Intensity')
 legend('Image', 'BGD 1', 'BGD 2', 'Location', 'eastoutside')
