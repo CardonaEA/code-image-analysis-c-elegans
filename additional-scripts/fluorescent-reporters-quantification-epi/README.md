@@ -25,11 +25,12 @@
 ## User guide
 ### Analysis (Procedure):
 **Follow the guide (_README_ or _PDF_) "Quantification of fluorescent reporter proteins (How to use)"** provided in `~/code/code-image-analysis-c-elegans-main/fluorescent-reporters-quantification`.<br>
-- Briefly and instead of the scripts provided there use the following:
+- Briefly and instead of the scripts provided there, use the following ones:
 1. Open MATLAB.
 2. In the command window type:
     - For analysis in batch:<br>`script_analysis_granules_epi_batch`<br>and then press enter.
     - To analyze one image:<br>`script_analysis_granules_epi`<br>and then press enter.
+    - For inter-experiments normalization:<br>`script_analysis_granules_epi_batch_normalized`<br>and then press enter.
 
 #### The default parameters of the script include:
 - Analysis in batch:
@@ -87,11 +88,45 @@
      
     ...
 ```
+- Analysis inter-experiments normalization:
+```matlab
+    ...
+
+    %==== file identifiers
+    image_files    = '*.tif';
+    outline_files  = 'MOD*Cells.csv';
+
+    %==== image voxel size
+    pixel_size_in_x_and_y = 0.1031746;    % micrometers
+    pixel_size_in_z       = 0.5;          % micrometers
+
+    %==== segmentation parameters
+    % background removal: bigger number will remove less BGD but it will give a better approximation of it
+    filter_size = 11;
+    % thresholding: values are between 0 and 1, one is likely to be a pixel that corresponds to granules
+    granule_threshold = 0.825;
+    % excluding small objects: objects smaller than the value will be excluded
+    small_objects_size = 4;
+
+    ...
+
+    % ranking parameters
+    parameters.ranking_mask_size = 2; % bigger numbers will increase speed but reduce accuracy in the sahpe of the condensate
+    parameters.components_conn = 6;
+     
+    ...
+
+    %==== inter-experiments normalization: mean, median, mode
+    normalization = 'mode';
+
+    ...
+```
 
 #### To change this:
 - Type in the command window:<br>
     - For analysis in batch:<br>`edit script_analysis_granules_epi_batch`
     - To analyze one image:<br>`edit script_analysis_granules_epi`
+    - For inter-experiments normalization:<br>`script_analysis_granules_epi_batch_normalized`
 - Press enter.
 - Then, default values can be manually modified.
 
