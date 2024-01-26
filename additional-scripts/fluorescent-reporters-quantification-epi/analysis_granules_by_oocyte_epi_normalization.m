@@ -36,8 +36,8 @@ mask_size = parameters.ranking_mask_size;
 if blocks_processing.is_out_focus
     idx_beg = blocks_processing.idx_beg;
     idx_end = blocks_processing.idx_end;
-    blocks_processing.value_beg = max(filtered_image(:,:,idx_beg),[],'all');
-    blocks_processing.value_end = max(filtered_image(:,:,idx_end),[],'all');
+    blocks_processing.value_beg = double(max(filtered_image(:,:,idx_beg),[],'all'));
+    blocks_processing.value_end = double(max(filtered_image(:,:,idx_end),[],'all'));
 end
 
 for i = 1 : image_Data.nIm
