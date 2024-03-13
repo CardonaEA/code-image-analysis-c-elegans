@@ -1,5 +1,5 @@
 %=== get parameters
-[parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size, components_conn);
+[parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size);
 
 %=== get dirs and files
 [selected_files, ndirs] = get_dirs_files_smFISH_preprocessing_batch(identifiers);
@@ -45,10 +45,8 @@ if nimgs
     end
 end
 
-for k = 2 : ndirs
-    disp(newline)
-    disp('normalizing...')
-
+% normalization
+if ndirs > 1
     switch normalization
         case 'mode'
             ref_smFISH = mean(modes_smFISH);
@@ -65,8 +63,12 @@ for k = 2 : ndirs
             ref_smFISH = mean(modes_smFISH);
             ref_GFP    = mean(modes_GFP);
     end
-    disp(ref_smFISH)
-    disp(ref_GFP)
+end
+
+% loop normalization
+for k = 2 : ndirs
+    disp(newline)
+    disp('normalizing...')
     disp(newline)
     % smFISH
     nimgs = length(selected_files{k}.smFISH_images);

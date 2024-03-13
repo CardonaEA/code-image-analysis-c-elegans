@@ -1,5 +1,5 @@
 %=== get parameters
-[parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size, components_conn);
+[parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size);
 
 %=== get dirs and files
 [selected_files, ndirs] = get_dirs_files_smFISH_preprocessing_batch(identifiers);

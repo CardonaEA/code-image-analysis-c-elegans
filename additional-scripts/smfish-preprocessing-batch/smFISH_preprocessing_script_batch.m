@@ -20,7 +20,6 @@ quantile_BGD_subtraction = 0.9; % quantile to subtract BGD value (initial filter
 % =====================
 % image ranking parameters
 ranking_mask_size = 2; % bigger numbers will increase speed but reduce accuracy in the shape of the condensate
-components_conn   = 6;
 
 % file identifiers
 image_files_smFISH = [image_files_smFISH '.tif'];

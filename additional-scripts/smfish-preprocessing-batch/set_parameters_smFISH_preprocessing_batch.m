@@ -1,4 +1,4 @@
-function [parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size, components_conn)
+function [parameters, blocks_processing, identifiers] = set_parameters_smFISH_preprocessing_batch(image_files_smFISH, image_files_GFP, is_stack_out_of_focus, quantile_BGD_subtraction, ranking_mask_size)
 %=== parameters
 parameters        = struct;
 blocks_processing = struct;
@@ -12,7 +12,6 @@ else
     parameters.quantile        = quantile_BGD_subtraction;
 end
 parameters.ranking_mask_size   = ranking_mask_size;
-parameters.components_conn     = components_conn;
 % blocks processing
 blocks_processing.is_out_focus = is_stack_out_of_focus;
 % file IDs
