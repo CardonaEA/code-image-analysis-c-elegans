@@ -3,6 +3,7 @@ pdf_step = parameter.pdf_step ;
 pdf_Band_Width = parameter.pdf_Band_Width;
 pdf_start = parameter.pdf_start;
 peak_fixed = parameter.peak_fixed;
+separation = parameter.separation;
 
 %==== Probability density funtion from kernel distribution
 data_to_fit = single_molecule_data;
@@ -31,7 +32,7 @@ data_to_fit_nano = experimental_data;
 % peak_fixed = [];
 % peak_fixed = 1;
 [nano_fit, nano_coef_fit, nano_coef_init] = fit_nanoclusters_model(pdf_yData_nano,...
-    xData_nano, yData_nano, sk_coef_fit, peak_fixed);
+    xData_nano, yData_nano, sk_coef_fit, peak_fixed, separation);
 
 % % show.distributions = 1;
 if show.plots

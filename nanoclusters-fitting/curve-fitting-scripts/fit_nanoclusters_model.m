@@ -1,4 +1,4 @@
-function  [fit_lin, x, x_init] = fit_nanoclusters_model(pdf_yData, xData, yData, x, peak_fixed)
+function  [fit_lin, x, x_init] = fit_nanoclusters_model(pdf_yData, xData, yData, x, peak_fixed, separation)
 % paremter from prev fit
 x_init = x;
 
@@ -23,17 +23,13 @@ options = optimset('Jacobian','off','Display','off','MaxIter',10000);
 %% Boundary conditions
 % Variable peak at  [ -5% SM value + 5%]
 if isempty(peak_fixed) || ~peak_fixed
-bound.lb = [0    x(2)*0.95    x(3)    x(4)   0     x(2)*1.4     0     x(4)]; 
-bound.ub = [inf  x(2)*1.05    x(3)    x(4)   inf   inf          inf   inf ];   
-% bound.lb = [0    x(2)*0.95    x(3)    x(4)   0     x(2)*1.05     0     0   ];
-% bound.ub = [inf  x(2)*1.05    x(3)    x(4)   inf   x(2)*2        inf   inf ];
+bound.lb = [0    x(2)*0.95    x(3)    x(4)   0     x(2)*separation   0     x(4)]; 
+bound.ub = [inf  x(2)*1.05    x(3)    x(4)   inf   inf               inf   inf ];   
 end
 % Fixed peak at SM  value
 if peak_fixed
-bound.lb = [0    x(2)    x(3)    x(4)   0     x(2)*1.4    0     x(4)]; 
-bound.ub = [inf  x(2)    x(3)    x(4)   inf   inf         inf   inf ];
-% bound.lb = [0    x(2)    x(3)    x(4)   0     x(2)*1.05    0     0  ];
-% bound.ub = [inf  x(2)    x(3)    x(4)   inf   x(2)*2       inf   inf];
+bound.lb = [0    x(2)    x(3)    x(4)   0     x(2)*separation   0     x(4)]; 
+bound.ub = [inf  x(2)    x(3)    x(4)   inf   inf               inf   inf ];
 end
 
 lb = bound.lb;

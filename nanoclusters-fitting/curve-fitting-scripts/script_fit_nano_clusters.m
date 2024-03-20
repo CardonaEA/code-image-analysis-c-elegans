@@ -7,6 +7,7 @@ parameter.pdf_step       = 0.5; % step for pdf evaluation from min : pdf_step : 
 parameter.pdf_Band_Width = 40;  % kernel band width
 parameter.peak_fixed     = 1;   % fixed peak at boundary calibration (Yes=1, No=0)
 parameter.pdf_start      = 0;   % starting pdf from 0
+parameter.separation     = 1.4; % controls the separation between dissolved and clustered curves
 
 % show plots of fitted data
 show.plots           = 0; % Yes=1, No=0

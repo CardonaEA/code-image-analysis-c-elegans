@@ -66,6 +66,7 @@ Copy the scripts provided (`./curve-fitting-scripts`) to the MATLAB folder (usua
     parameter.pdf_Band_Width = 40;  % kernel band width
     parameter.peak_fixed     = 1;   % fixed peak at boundary: force curved-fitted parameters of calibration data to be fixed in the skewed gaussian model (Yes=1, No=0).
     parameter.pdf_start      = 0;   % starting pdf from 0
+    parameter.separation     = 1.4; % controls the separation between dissolved and clustered curves
 
     % show plots of fitted data
     show.plots           = 0; % Yes= 1, No=0
@@ -79,7 +80,7 @@ pdf: probability density function.<br><br>
 - Type in the command window:<br>
 `edit script_fit_nano_clusters`<br>
 - Press enter.
-- Then, default values can be manually modified (lines # 5 to # 13).
+- Then, default values can be manually modified (lines # 5 to # 14).
 
 ## Outputs:
 
